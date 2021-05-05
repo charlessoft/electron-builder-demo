@@ -15,6 +15,12 @@ let win
 app.allowRendererProcessReuse = true
 
 function sendStatusToWindow(status, params) {
+  if(win){
+    console.log("okk:"+status)
+    console.log("okk:"+params)
+  }else{
+    console.log("ff")
+  }
   win.webContents.send(status, params)
 }
 
@@ -27,23 +33,29 @@ autoUpdater.autoInstallOnAppQuit = true // APP退出的时候自动安装
 
 autoUpdater.setFeedURL({
   provider: 'generic',
-  url: 'http://qiniucdn.tianlinyong.cn/app/' // git仓库
+  url: 'http://127.0.0.1:8881/download' // git仓库
 })
 autoUpdater.on('update-available', (info) => {
+  console.log('update-available')
   console.log(info)
   sendStatusToWindow('autoUpdater-canUpdate', info)
 })
 autoUpdater.on('error', (err) => {
+  console.log('error:' + err)
   sendStatusToWindow('autoUpdater-error', err)
 })
 autoUpdater.on('download-progress', (progressObj) => {
+  console.log('download-progress:' + progressObj)
+
   sendStatusToWindow('autoUpdater-progress', progressObj)
 })
 autoUpdater.on('update-downloaded', (info) => {
+  console.log('update-downloaded:' + info)
   sendStatusToWindow('autoUpdater-downloaded')
 })
 // 发起更新程序
 ipcMain.once('autoUpdater-toDownload', () => {
+    console.log('autoUpdater-toDownload')
   autoUpdater.downloadUpdate()
 })
 // 退出程序
@@ -116,7 +128,8 @@ app.on('ready', async () => {
   createWindow()
 
   // 运行APP检测更新。
-  autoUpdater.checkForUpdates()
+  // await autoUpdater.checkForUpdates()
+  sendStatusToWindow('autoUpdater-canUpdate', "info")
 })
 
 // Exit cleanly on request from parent process in development mode.

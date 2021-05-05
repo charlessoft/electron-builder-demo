@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-
+<!--    <HelloWorld msg="Welcome to Your Vue.js App"/>-->
+hello
     <el-dialog
       title="应用更新......"
       :visible="showUpdater"
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
@@ -33,13 +33,14 @@ export default {
     }
   },
   components: {
-    HelloWorld
+    // HelloWorld
   },
   created() {
     // 仅在Electron模式下
     console.log(process.env.IS_ELECTRON)
     if (process.env.IS_ELECTRON) {
       const { ipcRenderer } = require('electron')
+      console.log("sss")
 
       // 发现新版本
       ipcRenderer.once('autoUpdater-canUpdate', (event, info) => {

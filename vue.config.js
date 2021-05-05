@@ -20,7 +20,7 @@ module.exports = {
         publish: [
           {
             provider: 'generic',
-            url: 'http://qiniucdn.tianlinyong.cn/app/'
+            url: 'http://127.0.0.1:8881/download'
           }
         ]
       }
