@@ -128,8 +128,11 @@ app.on('ready', async () => {
   createWindow()
 
   // 运行APP检测更新。
-  // await autoUpdater.checkForUpdates()
-  sendStatusToWindow('autoUpdater-canUpdate', "info")
+  //
+  // sendStatusToWindow('autoUpdater-canUpdate', "info")
+  setTimeout(function (){
+    autoUpdater.checkForUpdates()
+  },3000)
 })
 
 // Exit cleanly on request from parent process in development mode.
