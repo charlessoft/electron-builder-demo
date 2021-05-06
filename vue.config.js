@@ -9,14 +9,23 @@ module.exports = {
         copyright: 'Copyright © 2020 electron-builder Demo',
         win: {
           target: [
-            'nsis', // 打包为nsis安装文件
-            'zip' // 打包为安装文件zip
+            // 'nsis', // 打包为nsis安装文件
           ]
         },
-        nsis: {
-          oneClick: false, // 是否一键安装
-          allowToChangeInstallationDirectory: true // 允许用户选择安装位置
-        },
+        // nsis: {
+        //   language: "1041",
+        //   unicode: true,
+        //   oneClick: false, // 是否一键安装
+        //   perMachine:true,
+        //   script:"./scripts/SmartConnect.nsi",
+        //   allowToChangeInstallationDirectory: true, // 允许用户选择安装位置
+        //   installerIcon: "./scripts/icon.ico",// 安裝圖標
+        //   uninstallerIcon: "./scripts/icon.ico",//卸載圖標
+        //   installerHeaderIcon: "./scripts/icon.ico", // 安裝時頭部圖標
+        //   createDesktopShortcut: true, // 創建桌面圖標
+        //   createStartMenuShortcut: true,// 創建開始菜單圖標
+        //   shortcutName: "xxxx", // 圖標名稱
+        // },
         publish: [
           {
             provider: 'generic',
