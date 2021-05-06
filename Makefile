@@ -9,5 +9,8 @@ cp:
 	scp -r ./dist_electron/*.dmg root@sdwanvpn2:/tmp/download
 	scp ./dist_electron/latest*.yml root@sdwanvpn2:/tmp/download
 cp_win:
-	scp -r ./dist_electron/*.exe root@sdwanvpn2:/tmp/download
-	scp ./dist_electron/latest*.yml root@sdwanvpn2:/tmp/download
+	rsync -r ./dist_electron/*.exe root@sdwanvpn2:/tmp/download
+	rsync ./dist_electron/latest*.yml root@sdwanvpn2:/tmp/download
+	rsync ./dist_electron/*blockmap root@sdwanvpn2:/tmp/download
+	cp ./dist_electron/win-unpacked/resources/app-update.yml ./dist_electron/
+

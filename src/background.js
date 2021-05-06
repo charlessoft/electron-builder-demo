@@ -6,7 +6,11 @@ import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 import { autoUpdater } from 'electron-updater'
 import path from 'path'
 const isDevelopment = process.env.NODE_ENV !== 'production'
-
+if (process.env.NODE_ENV === 'development') {
+  autoUpdater.updateConfigPath = path.join(__dirname, 'app-update.yml')
+} else {
+  autoUpdater.updateConfigPath = path.join(__dirname, '../../../app-update.yml')
+}
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win
