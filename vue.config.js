@@ -20,7 +20,7 @@ module.exports = {
         publish: [
           {
             provider: 'generic',
-            url: 'http://127.0.0.1:8881/download'
+            url: 'http://219.135.99.136/download'
           }
         ]
       }

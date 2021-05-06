@@ -33,7 +33,7 @@ autoUpdater.autoInstallOnAppQuit = true // APP退出的时候自动安装
 
 autoUpdater.setFeedURL({
   provider: 'generic',
-  url: 'http://127.0.0.1:8881/download' // git仓库
+  url: 'http://219.135.99.136/download' // git仓库
 })
 autoUpdater.on('update-available', (info) => {
   console.log('update-available')
